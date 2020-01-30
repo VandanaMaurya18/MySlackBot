@@ -90,6 +90,7 @@ getInfo = () => {
 allTasks = () => {
   axios.get(`${url}/slackbot_all_tasks`)
   .then(res => {
+
     const allTaskData =res.data
     var allTasks
     if(res.data.length){
@@ -110,39 +111,7 @@ allTasks = () => {
   })
 }
 
-
-// Tell a Yo Mama Joke
-function yoMamaJoke() {
-  axios.get('http://api.yomomma.info').then(res => {
-    const joke = res.data.joke;
-
-    const params = {
-      icon_emoji: ':laughing:'
-    };
-
-    bot.postMessageToChannel('general', `Yo Mama: ${joke}`, params);
-  });
+inboxTasks = () => {
+  axios.get(`${url}/slack`)
 }
 
-// Tell a Random Joke
-function randomJoke() {
-  const rand = Math.floor(Math.random() * 2) + 1;
-  if (rand === 1) {
-    chuckJoke();
-  } else if (rand === 2) {
-    yoMamaJoke();
-  }
-}
-
-// Show Help Text
-function runHelp() {
-  const params = {
-    icon_emoji: ':question:'
-  };
-
-  bot.postMessageToChannel(
-    'general',
-    `Type @jokebot with either 'chucknorris', 'yomama' or 'random' to get a joke`,
-    params
-  );
-}
