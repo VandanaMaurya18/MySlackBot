@@ -18,6 +18,7 @@
   "homepage": "https://github.com/VandanaMaurya18/MySlackBot#readme",
   "dependencies": {
     "axios": "^0.19.2",
+    "slackbot": "0.0.2",
     "slackbots": "^1.2.0"
   }
 }
